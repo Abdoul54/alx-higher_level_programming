@@ -1,35 +1,28 @@
-/*
- * File: 10-check_cycle.c
- * Auth: Brennan D Baraban
- */
-
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * check_cycle - Checks if a singly-linked list contains a cycle.
- * @list: A singly-linked list.
+ * check_cycle -> Check if Has cycle or not
  *
- * Return: If there is no cycle - 0.
- *         If there is a cycle - 1.
- */
+ * @list: Linked List
+ *
+ * Return: Depend Condition
+*/
+
 int check_cycle(listint_t *list)
 {
-	listint_t *turtle, *hare;
+	listint_t *slow, *fast;
 
-	if (list == NULL || list->next == NULL)
+	if (list == NULL)
 		return (0);
-
-	turtle = list->next;
-	hare = list->next->next;
-
-	while (turtle && hare && hare->next)
+	slow = list;
+	fast = list->next;
+	while (fast != NULL && fast->next != NULL)
 	{
-		if (turtle == hare)
+		if (slow == fast)
 			return (1);
 
-		turtle = turtle->next;
-		hare = hare->next->next;
+		slow = slow->next;
+		fast = fast->next->next;
 	}
 
 	return (0);

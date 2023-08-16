@@ -1,3 +1,2 @@
--- deletes
-DELETE FROM hbtn_0c_0.second_table
-WHERE score <= 5;
+-- removes all records where score is <= 5 from
+DELETE FROM second_table WHERE score <= 5;

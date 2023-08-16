@@ -1,5 +1,5 @@
--- another select 
-SELECT score, name
-FROM hbtn_0c_0.second_table
-WHERE name IS NOT NULL
-ORDER BY score DESC;
+-- display max tempretature of each state
+SELECT state, MAX(value) AS max_temp
+FROM temperatures
+GROUP BY state
+ORDER BY state;

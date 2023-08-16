@@ -1,6 +1,8 @@
-SELECT city, MAX(temperature) AS max_temperature
-FROM temperature_data
-WHERE (month = 7 OR month = 8)
+-- displays the average temp of 3 cities
+
+SELECT city, AVG(value) as avg_temp
+FROM temperatures
+WHERE month = 7 OR month = 8
 GROUP BY city
-ORDER BY max_temperature DESC
+ORDER BY avg_temp DESC
 LIMIT 3;
